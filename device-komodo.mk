@@ -34,6 +34,10 @@ $(call inherit-product-if-exists, vendor/google/faceunlock/config.mk)
 # Pixel APN list
 $(call inherit-product, vendor/google/CarrierSettings/telephony.mk)
 
+# EUICC
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/permissions/permissions_com.google.android.euicc.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/permissions_com.google.android.euicc.xml
+
 # Overlays
 PRODUCT_PACKAGES += \
     ConnectivityResourcesOverlayCaimitoOverride \
