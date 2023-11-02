@@ -38,6 +38,10 @@ $(call inherit-product-if-exists, vendor/google/faceunlock/config.mk)
 # Pixel APN list
 $(call inherit-product, vendor/google/CarrierSettings/telephony.mk)
 
+# Display
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/permissions/permissions_com.android.pixeldisplayservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/permissions_com.android.pixeldisplayservice.xml
+
 # EUICC
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/permissions/permissions_com.google.android.euicc.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/permissions_com.google.android.euicc.xml
