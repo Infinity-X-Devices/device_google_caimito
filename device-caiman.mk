@@ -88,3 +88,5 @@ DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += \
 
 # Window extensions
 $(call inherit-product, $(SRC_TARGET_DIR)/product/window_extensions.mk)
+
+PRODUCT_PACKAGES += fir-proximity-feature.xml
