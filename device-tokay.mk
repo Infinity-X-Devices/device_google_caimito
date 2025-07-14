@@ -15,6 +15,8 @@ PRODUCT_16K_DEVELOPER_OPTION := true
 endif
 
 DEVICE_PACKAGE_OVERLAYS += device/google/caimito/tokay/overlay
+DEVICE_PACKAGE_OVERLAYS += device/google/caimito/tokay/overlay-infinity
+DEVICE_PACKAGE_OVERLAYS += device/google/caimito/overlay-infinity
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -30,6 +32,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.prebuilt.xml \
     android.hardware.bluetooth_le.prebuilt.xml
+
+# Camera
+$(call inherit-product-if-exists, vendor/google/camera/config.mk)
+
+# Face unlock
+$(call inherit-product-if-exists, vendor/google/faceunlock/config.mk)
+
+# Pixel Parts
+$(call inherit-product-if-exists, packages/apps/PixelParts/device.mk)
 
 # Recovery files
 PRODUCT_COPY_FILES += \

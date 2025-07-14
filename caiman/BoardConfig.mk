@@ -16,3 +16,6 @@ BOARD_VENDOR_SEPOLICY_DIRS += \
 include $(DEVICE_PATH)/BoardConfigCommon.mk
 
 include $(VENDOR_PATH)/BoardConfigVendor.mk
+
+# Props
+TARGET_SYSTEM_PROP :=  device/google/caimito/caiman/system.prop
