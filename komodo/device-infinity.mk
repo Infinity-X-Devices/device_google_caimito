@@ -4,15 +4,15 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-$(call inherit-product, $(DEVICE_PATH)/device-lineage.mk)
+$(call inherit-product, $(DEVICE_PATH)/device-infinity.mk)
 
-DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/$(DEVICE_CODENAME)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/$(DEVICE_CODENAME)/overlay-infinity
 
 PRODUCT_PACKAGES += \
-    PixelDisplayServiceOverlayCaiman
+    PixelDisplayServiceOverlayKomodo
 
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/$(DEVICE_CODENAME)/vendor.prop
 
 # Init
 PRODUCT_PACKAGES += \
-    init.recovery.caiman.touch.rc
+    init.recovery.komodo.touch.rc

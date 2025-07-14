@@ -4,7 +4,19 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay-infinity
+
+# Always use scudo for memory allocator
+PRODUCT_USE_SCUDO := true
+
+# Camera
+include vendor/google/camera/config.mk
+
+# Googles Face Unlock
+include vendor/google/faceunlock/config.mk
+
+# PixelParts
+include packages/apps/PixelParts/device.mk
 
 # ANGLE - Almost Native Graphics Layer Engine
 PRODUCT_PACKAGES += \
