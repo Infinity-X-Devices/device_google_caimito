@@ -4,8 +4,19 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Inherit some common stuff
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some Infinity-X stuff
+$(call inherit-product, vendor/infinity/config/common_full_phone.mk)
+
+# Infinity-X Flags
+WITH_GAPPS := true
+WITH_GAPPS_AICORE := true
+INFINITY_BUILD_TYPE := OFFICIAL
+INFINITY_MAINTAINER := Pyrtle93
+TARGET_HAS_UDFPS := true
+TARGET_SUPPORTS_GFU := true
+PRODUCT_NO_CAMERA := true
+TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_EXCLUDES_AUDIOFX := true
 
 # Inherit device configuration
 DEVICE_CODENAME := komodo
@@ -16,7 +27,7 @@ $(call inherit-product, $(DEVICE_PATH)/aosp_$(DEVICE_CODENAME).mk)
 # Device identifier. This must come after all inclusions
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 9 Pro XL
-PRODUCT_NAME := lineage_$(DEVICE_CODENAME)
+PRODUCT_NAME := infinity_$(DEVICE_CODENAME)
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2992
