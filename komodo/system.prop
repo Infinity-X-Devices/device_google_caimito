@@ -1,0 +1,6 @@
+# Configuration for Pixel 9 Pro XL
+ro.infinity.soc=Google Tensor G4
+ro.infinity.battery=5060mAh  37w | 23w
+ro.infinity.display=6.8" LTPO OLED 1344 x 2992, 120Hz
+ro.infinity.camera=50MPMain+48MPUltraWide+48MPTele
+ro.product.marketname=Pixel 9 Pro XL

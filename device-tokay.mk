@@ -25,6 +25,15 @@ include device/google/zumapro/common.mk
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml
 
+# Always use scudo for memory allocator
+PRODUCT_USE_SCUDO := true
+
+# Camera
+$(call inherit-product-if-exists, vendor/google/camera/config.mk)
+
+# Face unlock
+$(call inherit-product-if-exists, vendor/google/faceunlock/config.mk)
+
 # Overlays
 PRODUCT_PACKAGES += \
     ConnectivityResourcesOverlayCaimitoOverride \
