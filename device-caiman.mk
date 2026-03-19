@@ -35,7 +35,6 @@ PRODUCT_PACKAGES += \
     TelecomOverlayProductCaimito
 
 PRODUCT_PACKAGES += \
-    DMServiceOverlayVendorCaiman \
     FrameworkResOverlayVendorCaiman \
     PixelDisplayServiceOverlayProductCaiman \
     PixelNfcOverlayCaiman \
