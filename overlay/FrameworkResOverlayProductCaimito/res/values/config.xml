@@ -17,4 +17,9 @@
 
     <!-- Maximum number of active tasks on a given Desktop Windowing session. Set to 0 for unlimited. -->
     <integer name="config_maxDesktopWindowingActiveTasks">5</integer>
+
+    <!-- Ambient AOD: show the lock screen wallpaper on always-on display.
+         Enables the "Show lock screen wallpaper" toggle under
+         Settings > Display > Always-on display. -->
+    <bool name="config_dozeSupportsAodWallpaper">true</bool>
 </resources>
