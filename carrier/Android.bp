@@ -1,0 +1,44 @@
+// force 5G NSA+SA + VoLTE on top of the carrier apps config using the
+// official CarrierConfigManager#overrideConfig API (replaces the old boot shell service).
+// Installed to system_ext (device-owned) to avoid the /system artifact-path requirement.
+// platform_apis: needs the @hide 3-arg overrideConfig(subId, bundle, persistent=true) so the
+// override lands in the persistent layer and is applied by CarrierConfigLoader BEFORE the
+// modem registers on reboot (so 5G SA actually engages, like the old -p boot service did).
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+android_app {
+    name: "InfinityCarrierConfig",
+    srcs: ["src/**/*.java"],
+    platform_apis: true,
+    certificate: "platform",
+    privileged: true,
+    system_ext_specific: true,
+    optimize: {
+        enabled: false,
+    },
+    required: [
+        "privapp_whitelist_org.infinity.carrierconfig",
+        "default-permissions_org.infinity.carrierconfig",
+    ],
+}
+
+prebuilt_etc {
+    name: "privapp_whitelist_org.infinity.carrierconfig",
+    src: "privapp_permissions_org.infinity.carrierconfig.xml",
+    sub_dir: "permissions",
+    system_ext_specific: true,
+    filename_from_src: true,
+}
+
+// Auto-grant the runtime READ_PHONE_STATE the receiver needs for getConfigForSubId /
+// getActiveSubscriptionInfoList (verified: without it getConfigForSubId throws
+// SecurityException: getCarrierConfig and the receiver crashes before applying anything).
+prebuilt_etc {
+    name: "default-permissions_org.infinity.carrierconfig",
+    src: "default-permissions_org.infinity.carrierconfig.xml",
+    sub_dir: "default-permissions",
+    system_ext_specific: true,
+    filename_from_src: true,
+}
