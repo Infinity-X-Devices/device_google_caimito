@@ -87,3 +87,9 @@ DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += \
 
 # Window extensions
 $(call inherit-product, $(SRC_TARGET_DIR)/product/window_extensions.mk)
+
+# force IMS (VoLTE/VoWiFi/VoNR) + 5G NR for all carriers
+PRODUCT_PACKAGES += CarrierConfigInfinity
+
+# force 5G NSA+SA + VoLTE for all carriers via CarrierConfig override app
+PRODUCT_PACKAGES += InfinityCarrierConfig
